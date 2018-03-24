@@ -1,0 +1,29 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "/home/astaech/arduino-1.8.5/hardware/arduino/avr/cores/arduino"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": false,
+                "path": [
+                    "/home/astaech/arduino-1.8.5/hardware/arduino/avr/cores/arduino",
+                    "/home/astaech/arduino-1.8.5/hardware/arduino/avr/cores/arduino/",
+                    "/home/astaech/arduino-1.8.5/hardware/arduino/avr/libraries/EEPROM/",
+                    "/home/astaech/arduino-1.8.5/hardware/arduino/avr/libraries/SPI/",
+                    "/home/astaech/arduino-1.8.5/hardware/arduino/avr/libraries/SoftwareSerial/",
+                    "/home/astaech/arduino-1.8.5/hardware/arduino/avr/libraries/Wire/",
+                    "/home/astaech/arduino-1.8.5/hardware/tools/avr/avr/include/",
+                    "/home/astaech/arduino-1.8.5/hardware/tools/avr/avr/include/avr/",
+                    "/home/astaech/arduino-1.8.5/hardware/tools/avr/avr/include/compat/",
+                    "/home/astaech/arduino-1.8.5/hardware/tools/avr/avr/include/util/",
+                    "/home/astaech/arduino-1.8.5/hardware/tools/avr/lib/gcc/avr/4.*.*/include/",
+                    "/home/astaech/arduino-1.8.5/hardware/tools/avr/lib/gcc/avr/4.*.*/include-fixed/"
+                ]
+            },
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 3
+}
