@@ -1,0 +1,5 @@
+cffi
+smbus-cffi
+datetime
+pymongo
+pprint
