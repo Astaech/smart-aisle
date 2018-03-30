@@ -9,10 +9,8 @@
 
 RFID rfid(SS_PIN, RST_PIN);
 
-void initData();
+void initData(boolean);
 void printData();
-void receiveData();
-void sendData();
 void requestEvent();
 
 int dataReceived;
@@ -31,26 +29,31 @@ void setup() {
   Wire.onRequest(requestEvent);
 
   // data initialization
-  initData();
+  initData(false);
 }
 
 void loop() {
   if(rfid.isCard()) {
     if(rfid.readCardSerial()) {
+      initData(true);
       printData();
-      delay(2000);
+      delay(1000);
+      initData(false);
     }
   }
 }
 
-void initData(){
+void initData(boolean a) {
   int i;
   for(i=0; i<WORD; i++) {
-    datas[i] = 22;
+    if(a)
+      datas[i] = rfid.serNum[i];
+    else
+      datas[i] = 0;
   }
 }
 
-void printData(){
+void printData() {
   int i;
   for(i=0; i<WORD; i++) {
     Serial.print(rfid.serNum[i]);
@@ -59,12 +62,8 @@ void printData(){
   Serial.println("");
 }
 
-void requestEvent(){
+void requestEvent() {
   int i;
-  for(i=0; i<WORD; i++) {
-    datas[i] = rfid.serNum[i];
-  }
-
   Serial.print("send : ");
   for(i=0; i<WORD; i++) {
     Serial.print(datas[i]);
@@ -73,31 +72,4 @@ void requestEvent(){
   Serial.println("");
 
   Wire.write(datas, WORD);
-  initData();
-}
-
-void receiveData(){
-  while(Wire.available()) {
-    dataReceived = Wire.read();
-    Serial.print("received : ");
-    Serial.println(dataReceived);
-    sendData();
-  }
-}
-
-void sendData(){
-  int i;
-  for(i=0; i<WORD; i++) {
-    datas[i] = rfid.serNum[i];
-  }
-
-  Serial.print("send : ");
-  for(i=0; i<WORD; i++) {
-    Serial.print(datas[i]);
-    Serial.print(" ");
-  }
-  Serial.println("");
-
-  Wire.write(datas, WORD);
-  initData();
 }
