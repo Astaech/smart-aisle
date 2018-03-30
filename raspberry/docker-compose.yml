@@ -1,0 +1,22 @@
+version: '3'
+services:
+  api:
+    container_name: 'rpi3-api'
+    image: astaech/rpi3-i2c-mongo
+    build: ./src
+    volumes:
+      - ./src:/app
+    devices:
+      - /dev/i2c-1
+    depends_on:
+      - 'mongo'
+  mongo:
+    container_name: 'rpi3-mongo'
+    image: mongo
+    ports:
+      - '27017:27017'
+  admin:
+    container_name: 'rpi3-admin'
+    image: mrvautin/adminmongo
+    ports:
+      - '1234:1234'
