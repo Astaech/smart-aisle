@@ -12,7 +12,7 @@ services:
       - 'mongo'
   mongo:
     container_name: 'rpi3-mongo'
-    image: mongo
+    image: mangocraft/mongodb-arm
     ports:
       - '27017:27017'
   admin:
