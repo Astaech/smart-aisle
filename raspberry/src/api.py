@@ -4,7 +4,7 @@ import datetime
 from pymongo import MongoClient
 from pprint import pprint
 
-client = MongoClient('mongodb://admin:admin@mongo:27017/')
+client = MongoClient('mongodb://admin:admin@mongo:27017/smartaisle')
 db=client.smartaisle
 products=db.products
 bus = smbus.SMBus(1)
