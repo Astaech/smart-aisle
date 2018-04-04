@@ -13,5 +13,7 @@ services:
   mongo:
     container_name: 'rpi3-mongo'
     image: mangoraft/mongodb-arm
+    volumes:
+      - ./data:/data
     ports:
       - '27017:27017'
