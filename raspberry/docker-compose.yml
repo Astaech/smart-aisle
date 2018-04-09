@@ -17,3 +17,5 @@ services:
       - ./data:/data
     ports:
       - '27017:27017'
+    environment:
+      - AUTH: no
